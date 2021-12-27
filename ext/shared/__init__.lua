@@ -2567,3 +2567,21 @@ ResourceManager:RegisterInstanceLoadHandler(m_SU25TMPGuid, m_SU25TMCam4IGuid, fu
 end)
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-- Helicopters Flares | defaultReloadTime: 11 // defaultAmmoOfMagazines: -1 | 
+local s_PGUID_HeliFlares = Guid("F4C417AE-4704-4023-BCF4-B2AEA52164AD")
+local s_IGUID_HeliFlares = Guid("08DD1F54-8CE3-4D5D-9B3E-D9EA40D6B97B")
+ResourceManager:RegisterInstanceLoadHandler(s_PGUID_HeliFlares, s_IGUID_HeliFlares, function(p_LoadedInstance)
+    local s_FiringFunctionData = FiringFunctionData(p_LoadedInstance)
+    s_FiringFunctionData:MakeWritable()
+    s_FiringFunctionData.fireLogic.reloadTime = 0.5
+    s_FiringFunctionData.shot.numberOfBulletsPerShot = 2.0
+    s_FiringFunctionData.shot.numberOfBulletsPerShell = 6.0
+    s_FiringFunctionData.ammo.numberOfMagazines = 60
+print("*Changed FiringFunctionData of Heli Flares")
+end)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
